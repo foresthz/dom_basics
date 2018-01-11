@@ -1,0 +1,121 @@
+
+
+<!-- .kchart(.leftbar+(.kchart_panel>(.main_panel>canvas[width=500 height=500 id=main_canvas])+(.index1_panel>canvas[width=500 height=200 id=index_canvas])))
+.leftbar+(.kchart_panel>(.main_panel>canvas[width=500 height=500 id=main_canvas])+(.index1_panel>canvas[width=500 height=200 id=index_canvas]))
+.leftbar+(.kchart_panel>(.main_panel>canvas[width=500 height=500 id=main_canvas])+(.index1_panel>canvas[width=500 height=200 id=index_canvas])) -->
+
+<div class="all">
+	<div class="leftbar"></div>
+	<div class="kchart_panel">
+		<div class="main_panel">
+			<canvas width="900" height="250" id="main_canvas"></canvas>
+		</div>
+		<div class="index1_panel">
+			<canvas width="900" height="200" id="index_canvas"></canvas>
+		</div>
+	</div>
+	<div class="right_display">
+		<div class="keyarea">
+			<div id="status_part">
+				<label for="">status</label>
+				<input type="text" id="status">
+			</div>
+			<div id="code_part">
+				<label for="">code</label>
+				<input type="text" id="code">
+			</div>
+			<div id="key_part">
+				<label for="">key</label>
+				<input type="text" id="key">
+			</div>
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+
+.leftbar {
+	width: 100px;
+	height: 100%;
+	background-color: yellow;
+	display: inline-block;
+	/*float: left;*/
+}
+.right_display{
+	width:120;
+	height: 100%;
+	background-color: #ff00ff;
+	/*display: inline-block;*/
+	float: right;
+}
+.kchart_panel {
+	/*float: right;*/
+	display: inline-block;
+}
+
+.main_panel {
+	border: red solid 1px;
+}
+
+.index1_panel {
+	border: green solid 1px;
+}
+
+.all {
+	border: 1px pink solid;
+}
+</style>
+
+
+
+
+<script type="text/javascript">
+
+class KeyBoardManager {
+	constructor(id) {
+		if (typeof id == "string") {
+			this.node = document.getElementById(id);
+		} else {
+			this.node = id;
+		}
+		this.key_node = document.getElementById('key');
+		this.code_node = document.getElementById('code');
+		this.status_node = document.getElementById('status');
+		this.shiftpressed = false;
+	}
+	addEvent(event, func) {
+		this.node.addEventListener(event, func);
+	}
+
+};
+
+var docMgr = new KeyBoardManager(document);
+
+docMgr.addEvent('keypress', function(e){
+	console.info('keypress ------------------------- : ', e.keyCode);
+	docMgr.key_node.value = String.fromCharCode(e.keyCode);
+	docMgr.code_node.value = e.keyCode;
+})
+docMgr.addEvent('keydown', function(e) {
+	docMgr.status_node.value = 'keydown';
+	if (e.keyCode == 16) {
+		docMgr.shiftpressed = true;
+		console.info('key down', e.keyCode);
+	} else {
+		console.info('key down', e.keyCode, 'shift pressed: ', docMgr.shiftpressed);
+
+	}
+});
+docMgr.addEvent('keyup', function(e) {
+	docMgr.status_node.value = 'keyup';
+	if (e.keyCode == 16) {
+		docMgr.shiftpressed = false;
+		console.info('keyup', e.keyCode);
+	} else {
+
+		console.info('keyup', e.keyCode, 'shift pressed: ', docMgr.shiftpressed);
+	}
+})
+
+
+</script>

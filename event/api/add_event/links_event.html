@@ -1,0 +1,44 @@
+
+
+<div class="tb1">
+	<a href="http://quanxue.cn/CT_NanHuaiJin/ZongJing/ZongJing01.html" data-winid='ookk'>一部伟大的哲学巨构</a>
+	<a href="http://quanxue.cn/CT_NanHuaiJin/ZongJing/ZongJing02.html">坦坦觉路作迷途</a>
+</div>
+
+<style type="text/css">
+
+.tb1 {
+	display: list-item;
+}
+</style>
+
+<script type="text/javascript">
+
+class LinkEventManager {
+	addEvent_to_links(clz) {
+		let divNodes = document.getElementsByClassName(clz);
+		for(let i=0; i<divNodes.length; i++) {
+			let divNode = divNodes[i];
+			let a_nodes = divNode.getElementsByTagName('a');
+			for(let j=0; j<a_nodes.length; j++) {
+				let a_node = a_nodes[j];
+				this.addEvent(a_node, 'click', function(e){
+					e.preventDefault();
+					alert('hi');
+				});
+			}
+			console.info('deal with div nodes');
+		};
+
+		console.info('add event to links');
+	}
+
+	addEvent(node, event, func) {
+		node.addEventListener(event, func);
+	}
+}
+
+var lmanager = new LinkEventManager();
+lmanager.addEvent_to_links('tb1');
+
+</script>

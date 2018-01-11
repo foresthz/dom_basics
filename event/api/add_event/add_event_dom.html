@@ -1,0 +1,17 @@
+
+
+<button id="btn_two_event">添加两个事件</button>
+
+<script type="text/javascript">
+
+// 添加2个事件都可以同时执行
+var btn_two_event = document.getElementById('btn_two_event');
+btn_two_event.addEventListener('click', function(){
+	console.info('func1 triggered');
+});
+
+btn_two_event.addEventListener('click', function(){
+	console.info('func2 triggered');
+});
+
+</script>
