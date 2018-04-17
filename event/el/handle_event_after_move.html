@@ -1,0 +1,53 @@
+
+
+<style>
+    .toolbar_old {
+        position: absolute;
+        right: 20px;
+        top: 50px;
+        background-color: limegreen;
+    }
+    .toolbar_new {
+        position: absolute;
+        top:200px;
+        left: 30px;
+        background-color: lightpink;
+        width: 40%;
+        height: 30px;
+    }
+
+    #btn_op {
+        border-bottom: lightcoral 2px solid;
+    }
+</style>
+<div class="toolbar_old">
+    <button id="btn1">按钮1</button>
+    <button id="btn2"></button>
+    <button id="btn3"></button>
+    <button id="btn_op">移动按钮1</button>
+</div>
+
+<div class="toolbar_new"></div>
+
+
+<script>
+    let btn1 = document.querySelector('#btn1');
+    btn1.onclick = function() {
+        alert('button 1 clicked');
+    };
+    let btn2 = document.querySelector('#btn2');
+
+    document.querySelector('#btn_op').onclick = function() {
+        let newToolBar = document.querySelector('.toolbar_new');
+
+        if(btn1.parentElement.classList.contains("toolbar_old")) {
+            newToolBar.append(btn1);
+        } else {
+            btn2.before(btn1);
+        }
+    }
+</script>
+
+<pre>
+    同一个window里面移动，事件是保持的. iframe之间呢?
+</pre>

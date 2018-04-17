@@ -1,0 +1,17 @@
+
+<button id="btn1">链接</button>
+<button id="btn2"></button>
+<button id="btn3"></button>
+<script type="text/javascript">
+function lab1() {
+	let node=document.getElementById('btn1');
+	let event1 = new Event('links');
+	node.addEventListener('links', function(){
+		alert('自定义事件 links 被触发');
+		open('https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events');
+	});
+	node.dispatchEvent(new Event('links'));
+}
+
+lab1();
+</script>

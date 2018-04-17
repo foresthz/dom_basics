@@ -1,0 +1,12 @@
+
+<a href="http://www.baidu.com" id="link_prevent_lab1">百度</a>
+
+<script type="text/javascript">
+
+let link_lab1 = document.getElementById('link_prevent_lab1');
+link_lab1.addEventListener('click', function(event){
+	event.preventDefault();
+	console.info('link lab1 clicked', Math.random());
+})
+
+</script>

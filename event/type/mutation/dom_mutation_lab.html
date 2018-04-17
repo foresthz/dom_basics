@@ -1,0 +1,90 @@
+
+<script type="text/javascript">
+function addEvent(id, event, func) {
+	let node = document.getElementById(id);
+	node.addEventListener(event, func);
+} 
+
+function create_span_node({value='default', style=''} = {}) {
+	let node = document.createElement('div');
+	node.innerText = value;
+	node.style=style;
+	return node;
+}
+
+function change_style(node, style) {
+	node.style = style;
+}
+
+$ = (id) => {
+	return document.getElementById(id);
+}
+</script>
+
+<div id="mutation1">
+	<span class="annotation">段落1  DOMNodeInserted 修改</span>  
+	滕文公为世子，将之楚，过宋而见孟子。孟子道性善，言必称尧舜。世子自楚反，复见孟子。孟子曰：「世子疑吾言乎？夫道一而已矣。成规谓齐景公曰：『彼，丈夫也；我，丈夫也；吾何畏彼哉。』颜渊曰：『舜，何人也？予，何人也？有为者亦若是。』公明仪曰：『文王，我师也；周公岂欺我哉？』今滕，绝长补短，将五十里也，犹可以为善国。书曰：『若药不瞑眩，厥疾不瘳。』」
+</div>
+<button id="btn_insert_mutation1">插入段落1 </button>
+<button id="btn_change_style_mutation1">修改段落样式1</button>
+
+<div id="mutation2">
+	<span class="annotation">段落2 </span>
+	滕定公薨,<span class="emphasize">世子谓然友曰</span>：「昔者孟子尝与我言于宋，于心终不忘。<span class="emphasize">今也不幸至于大故，吾欲使子问于孟子，然后行事。</span>」
+	然友之邹问于孟子。
+</div>
+
+<button id="btn_insert_style_mutation2">插入<span class="emphasize">样式2</span></button>
+<button id="btn_insert_mutation2">插入段落2</button>
+
+
+<script type="text/javascript">
+
+addEvent('mutation1', 'DOMNodeInserted', function(){
+	alert('mutation1, node inserted');
+});
+addEvent('btn_change_style_mutation1', 'click', function(){
+	change_style($('mutation1'), 'background-color:pink');
+})
+
+addEvent('btn_insert_mutation1', 'click', function(){
+	let node1 = document.createElement('div');
+	node1.innerText = '插入节点';
+	node1.style = 'color:red;';
+	let node2 = create_span_node({value:'节点2', style:'color:black;font-size:30px;background-color:#bbeeff'});
+	$('mutation1').append(node1);
+	$('mutation1').append(node2);
+
+});
+
+addEvent('btn_insert_mutation2', 'click', function() {
+	let node2 = create_span_node({
+		value: `
+		孟子曰：「不亦善乎！亲丧，固所自尽也。曾子曰：『生，事之以礼；死，葬之以礼，祭之以礼，可谓孝矣。』诸侯之礼，吾未之学也；虽然，吾尝闻之矣。三年之丧，齐疏之服，飦粥之食，自天子达于庶人，三代共之。」
+		`
+	});
+	$('mutation2').append(node2);
+})
+
+let emphasize_style_text=
+`
+.emphasize {
+	color: blue;
+	background-color:pink;
+}
+`;
+
+addEvent('btn_insert_style_mutation2', 'click', function(){
+	let css_node = document.createElement('style');
+	css_node.innerText = emphasize_style_text;
+	document.body.append(css_node);
+});
+
+</script>
+
+<style type="text/css">
+.annotation {
+	background-color: yellow;
+	display: block;
+}
+</style>

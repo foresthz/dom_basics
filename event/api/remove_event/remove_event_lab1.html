@@ -1,0 +1,34 @@
+
+<button id="btn_add_event">addEvent</button>
+
+<script type="text/javascript">
+
+class EventRemoveManager {
+}
+
+function addEvent(id, func) {
+	let node = document.getElementById(id);
+	node.addEventListener('click', func);
+}
+
+function removeEvent(id, func) {
+	let node = document.getElementById(id);
+	node.removeEventListener('click', func);
+}
+
+addEvent('btn_add_event', function(){
+	alert('one event');
+});
+addEvent('btn_add_event', function(){
+	alert('two event');
+});
+
+removeEvent('btn_add_event',function(){});
+
+
+
+</script>
+
+<pre>
+	只能针对外部函数
+</pre>

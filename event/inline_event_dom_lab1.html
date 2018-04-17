@@ -1,0 +1,23 @@
+
+
+<button onclick=alert('按钮1')>按钮1</button>
+
+<button onclick=eval(`alert('hi')`)>字符eval</button>
+
+<button onclick="javascript: (function(){alert('函数')})()">函数</button>
+<button onclick="(function(){alert('函数')})()">函数_匿名</button>
+<button onclick="(function aaa(){alert('函数')})()">函数_aaa</button>
+
+<button onclick="(function(){open('http://baidu.com');open('http://toutiao.com');})()"> 多链接</button>
+<button onclick="window.open('http://baidu.com')">打开窗口</button>
+
+<a onclick="(function(){window.open('https://greasyfork.org/zh-CN/scripts?utf8=✓&amp;q=facebook');window.open('http://zzk.cnblogs.com/s?t=b&amp;w=tampermonkey');})()" style="background-color:white" title="很多脚本"> M
+    	
+
+        </a>
+<pre>
+	不能用
+</pre>
+<button onclick=`(function(){alert('函数')})()`>函数_不支持 左上角弯曲线`` </button>
+<button onclick=`javascript: (function(){alert('函数')})()`>函数_不支持 左上角弯曲线`` </button>
+<button onclick="function abc(){alert('函数')}">函数_没调用</button>

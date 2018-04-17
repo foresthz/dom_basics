@@ -1,0 +1,21 @@
+
+<a href="javascript:void(0)" onclick=alert('hello')>Hello</a> | 
+
+<a href="" onclick="javascript:alert('js hello')">JS Hello</a> | 
+<a href="" onclick="javascript:function a(){alert('hello in function');}()">Func Hello</a> | 
+<a href="" onclick="javascript:function(){alert('hello in function');}()">Func Hello</a> | 
+<a href="" onclick="javascript:window.h1 = function(){alert('hello in function');}()">Func Hello</a> | 
+
+
+<button id="btn1" data-value="啊啊啊">获取dataset</button>
+<a href="http://baidu.com" id="link1">取消href事件</a>
+<script type="text/javascript">
+document.getElementById('btn1').onclick = function(e) {
+	alert('btn1');
+}
+
+document.getElementById('link1').onclick = function(e) {
+	e.preventDefault();
+	alert('link1');
+}
+</script>
