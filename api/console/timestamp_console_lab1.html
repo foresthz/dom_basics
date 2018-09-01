@@ -1,0 +1,20 @@
+
+<script type="text/javascript">
+
+function loop(n) {
+	console.timeStamp('XYZ Time Stamp #' + n);
+	let sum = 0;
+	for (let i = 0; i < 1000000*n*n; i++) {
+		sum += i;
+	}
+}
+
+function outLoop(n) {
+	for(let i=1; i<=n; i++) {
+		loop(i);
+	}
+}
+
+outLoop(20);
+alert('done');
+</script>

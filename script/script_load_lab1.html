@@ -1,0 +1,15 @@
+<script>
+    let s1 = document.createElement('script');
+    s1.addEventListener('load', function(e){
+        debugger;
+    });
+    s1.addEventListener('error', function(e){
+        debugger;
+        // 可以通过属性匹配获取selector
+        let oldScript = document.querySelector(`script[src=${CSS.escape(e.target.src)}]`);
+        // e.target.src = 'https://cdn.bootcss.com/react/16.4.0-alpha.0911da3/umd/react.production.min.js';
+    });
+    document.head.append(s1);
+    s1.src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js';
+    // s1.src='https://cdn.bootcss.com/react/16.4.0-alpha.0911da3/umd/react.production.min.js';
+</script>

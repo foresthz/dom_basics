@@ -1,0 +1,22 @@
+<div id="div0">
+<span>所言诃欲者，谓五欲也。凡欲坐禅，修习止观，必须诃责。</span>
+<div id="div1"></div>
+</div>
+
+<script>
+ let divNode = document.getElementById("div1");
+ let shadow1 = divNode.attachShadow({mode:'open'});
+
+ let b=document.createElement('b');
+ b.innerText="shadow插入";
+ b.id = "inner_b_node";
+ b.style = "color:green";
+ shadow1.appendChild(b);
+
+</script>
+
+<style>
+ #inner_b_node {
+     color:red;
+ }
+</style>

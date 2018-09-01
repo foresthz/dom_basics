@@ -1,0 +1,63 @@
+<body>
+
+    <ul class="list1">
+        <li class="item1">
+            贫人得宝当知此则是汝等大师，若我住世无异此也
+        </li>
+        <li class="item1">
+            持净戒者。不得贩卖贸易，安置田宅
+        </li>
+        <li class="item1">
+            畜养人民奴卑畜生，一切种植及诸财宝，皆当远离，如避火坑
+        </li>
+        <li class="item1">
+            咒术仙药，结好贵人，亲厚媟慢，皆不应作
+        </li>
+        <li class="item1">
+            於四供养，知量知足，趣得供事，不应畜积
+        </li>
+
+        <li class="item1 link1">
+            <a href="http://www.ifeng.com/">凤凰网(十字)</a>
+        </li>
+        <li class="item1">
+
+        </li>
+        <li class="item1 link2">
+            <a href="https://www.autohome.com.cn/">汽车之家(放大)</a>
+        </li>
+    </ul>
+</body>
+
+<script>
+    let pop_win;
+    window.addEventListener('resize', function (e) {
+        console.info('pop_win handler: ', e.target);
+        let win1 = open('http://www.ifeng.com');
+        pop_win = win1;
+        console.info('win1 (w,h): ', e.target.innerWidth, e.target.innerHeight);
+        setInterval(function () {
+            // debugger;
+            win1.close();
+        }, 20000);
+    });
+</script>
+
+<style>
+    .list1 {
+        position: absolute;
+        right: 100px;
+        border: solid salmon 1px;
+    }
+
+    .item1 {
+        cursor: help;
+    }
+
+    li.link1 a{
+        cursor:crosshair;
+    }
+    li.link2 a{
+        cursor: zoom-in;
+    }
+</style>

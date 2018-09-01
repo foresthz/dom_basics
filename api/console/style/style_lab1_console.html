@@ -1,0 +1,25 @@
+
+
+<ul>
+    <li>不可胜者，守也；可胜者，攻也</li>
+    <li>故胜兵若以镒称铢，败兵若以铢称镒。</li>
+    <li>地生度，度生量，量生数，数生称，称生胜。</li>
+</ul>
+
+<script>
+    console.group('军形');
+    console.info('善守者藏于九地之下，善攻者动于九天之上，故能自保而全胜也。');
+    console.info('故善战者，%c立于不败之地，%c而不失敌之败也。', 'color:red;', 'color:blue');
+    console.info('%c是故胜兵先胜而后求战，%c败兵先战而后求胜。', 'background-color:yellow;', 'color:green;border:pink 1px solid;');
+    console.info('%c善用兵者，修道而保法，%c故能为胜败之政。', 'color:blue;font-family:隶书;font-size:2em;',
+        'color:pink;font-family:楷体;font-size:2em;');
+    console.groupEnd();
+</script>
+
+<style>
+    ul>li:nth-child(2n+1)::before {
+        content: "";
+        border-left: 2px greenyellow solid;
+        margin-right: 2em;
+    }
+</style>

@@ -1,0 +1,30 @@
+
+<script type="text/javascript">
+
+let dataset={};
+
+function initData() {
+	for (let i = 0; i < 10000; i++) {
+		dataset[Math.random()] = Math.random()>0.5;
+	}
+}
+
+function randomAccess() {
+	let trueNumber = 0;
+	for(let key in dataset) {
+		if(dataset[key]) {
+			trueNumber ++;
+		}
+	}
+	console.log('number of total truth is: ', trueNumber);
+}
+
+function Lab() {
+	initData();
+	randomAccess();
+}
+
+console.profile('Dataset Profile');
+Lab();
+console.profileEnd('Dataset Profile');
+</script>

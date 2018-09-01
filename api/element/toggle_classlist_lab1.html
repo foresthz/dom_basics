@@ -1,0 +1,77 @@
+<p id="p1">
+    家庭有个真佛，日用有种真道，人能诚心和气、愉色婉言，使父母兄弟间形体万倍也。 攻人之恶毋太严，要思其堪受；教人以善毋过高，当使其可从。
+</p>
+
+<ul id='ul1'>
+    <li>余过古刹，于残经败纸中拾得《菜根谭》一录</li>
+    <li>虽属禅宗，然于身心性命之学，实有隐隐相发明者</li>
+    <li></li>
+</ul>
+
+<script>
+</script>
+
+<style>
+    p.clicked::before {
+        content: "__--__";
+        border: chartreuse solid 1px;
+    }
+
+    /* 前面必须有relative,才不会相对于body定位 */
+    li {
+        /* list-style-type: none; */
+        position: relative;
+        /* margin: 2px;
+        padding: 0.5em 0.5em 0.5em 2em;
+        background: lightgrey;
+        font-family: sans-serif; */
+    }
+
+    li.clicked::before {
+        content: '';
+        position: absolute;
+        border-color: #009933;
+        border-style: solid;
+        border-width: 0 0.3em 0.25em 0;
+        height: 1em;
+        top: 1.3em;
+        left: 0.6em;
+        margin-top: -1em;
+        transform: rotate(45deg);
+        width: 0.5em;
+    }
+</style>
+
+<svg>
+    <path d="M10 10 L40 20 L50 100 Z" fill="red" stroke="green" stroke-width="7" />
+    <circle cx=100 cy=100 r=11 fill=yellow />
+    <!-- <polyline points="200,50 250,50 30,200"/> -->
+    <!-- <rect x="300" y="300" width="200" height="100" style="fill:red" /> -->
+</svg>
+
+
+<svg width="50%" height="30%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="40" y="40" width="200" height="60" style="fill:blue;stroke:pink;stroke-width:5;opacity:0.9" />
+</svg>
+
+<svg>
+    <!-- <polyline points="0,0 0,20 20,20 20,40 40,40 40,60" style="fill:white;stroke:red;stroke-width:2" /> -->
+    <polyline points="0,0 0,20 20,20 20,40 40,40 40,60" style="fill:yellow;stroke:red;stroke-width:2" />
+</svg>
+
+<script>
+    let pnode1 = document.getElementById('p1');
+    let ulNode1 = document.getElementById('ul1');
+
+    let handler = function (e) {
+        debugger;
+        // tagName必须大写
+        if (e.target.tagName == 'P') {
+            e.target.classList.toggle('clicked');
+        } else if (e.target.tagName === 'LI') {
+            e.target.classList.toggle('clicked');
+        }
+    };
+    pnode1.addEventListener('click', handler);
+    ulNode1.addEventListener('click', handler);
+</script>
