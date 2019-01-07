@@ -1,0 +1,65 @@
+<script>
+
+    document.oncontextmenu = function (event) {
+        event.preventDefault();
+        // alert('invoke context menu');
+        let menu1 = document.querySelector('.menu1');
+        menu1.style.position = "absolute";
+        menu1.style.left = event.clientX;
+        menu1.style.top = event.clientY;
+        menu1.classList.remove("hide");
+        // debugger;
+        // setTimeout(() => {
+        //     open('http://www.youth.cn');
+        // }, 2000);
+    }
+
+    document.addEventListener('click', function (event) {
+        let menu1 = document.querySelector('.menu1');
+        menu1.classList.add('hide');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        let menu1 = document.querySelector('.menu1');
+        menu1.addEventListener('click', function (event) {
+            event.stopPropagation();
+            let node = event.target;
+            let tagName = node.tagName.toLowerCase();
+            let text = node.innerText;
+            if (tagName == "li") {
+                switch (text) {
+                    case "打开网页":
+                        open('https://www.toutiao.com/ch/news_tech/');
+                        break;
+                    case "显示alert":
+                        alert('alert ..... ');
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+        });
+        // debugger;
+    });
+</script>
+
+
+<ul class="menu1 hide">
+    <li class="item1">打开网页</li>
+    <li class="item1">显示alert</li>
+    <li class="item1">显示时间</li>
+    <li class="item1">改变背景颜色</li>
+    <li class="item1">增大字体</li>
+    <li class="item1">缩小字体</li>
+</ul>
+
+<style>
+    .hide {
+        display: none;
+    }
+
+    .menu1 {
+        background: yellow;
+    }
+</style>
