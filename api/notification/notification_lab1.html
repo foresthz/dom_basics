@@ -1,0 +1,93 @@
+<title>Alarm Notification</title>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<div class="body">
+    <label for="notify_body">消息体</label>
+    <input type="text" id="notify_body">
+</div>
+
+<div class="time">
+    <label for="notify_minute">分钟</label>
+    <input type="text" id="notify_minute">
+</div>
+
+<button id="btn_start">启动</button>
+<button id="btn_pause">暂停</button>
+<button id="btn_play">播放</button>
+
+<style>
+    #notify_body {
+        width: 60%;
+    }
+
+    .body {
+        margin-bottom: 2px;
+    }
+</style>
+
+<script>
+    notify_minute.focus();
+
+    btn_start.addEventListener('click', function () {
+        if (notify_minute.value == "") {
+            notify_minute.value = 1;
+            alert('使用默认值 1分钟');
+        }
+
+        let success_notify = new Notification('启用提醒成功');
+        setTimeout(() => {
+            success_notify.close();
+        }, 1000);
+
+        setTimeout(() => {
+            let notify = new Notification('提醒', {
+                requireInteraction: true,
+                body: notify_body.value
+            });
+
+            // let player = new Audio('./notify.ogg');
+            let player = document.getElementById('player');
+            if (player) {
+                player.play();
+            } else {
+                player = new Audio('http://127.0.0.1:8081/fe_basics/a.mp3');
+                player.id = 'player';
+                // let player = new Audio('./a.mp3');
+                document.body.append(player);
+                player.autoplay = true;
+                player.load();
+            }
+
+
+            notify.onclick = function (e) {
+                open('http://news.baidu.com/');
+                e.target.close();
+            };
+
+
+        }, Number(notify_minute.value) * 60 * 1000);
+        // alert('hi');
+    });
+
+    btn_pause.addEventListener('click', function(){
+        let player = document.getElementById('player');
+        if(player) {
+            player.pause();
+        }
+    });
+    btn_play.addEventListener('click', function(){
+        let player = document.getElementById('player');
+        if(player) {
+            player.play();
+        }
+    });
+</script>
+
+<pre>
+    换成slide控件和自定义控件
+    显示倒计时
+    时钟绘制
+</pre>

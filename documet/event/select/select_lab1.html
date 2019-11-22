@@ -1,0 +1,43 @@
+
+
+
+<pre id="div1">
+    夫将者，国之辅也。辅周则国必强，辅隙则国必弱。故君之所以患于军者三：
+    不知军之不可以进而谓之进，不知军之不可以退而谓之退，是谓縻军；不知三军之事而同三军之政，则军士惑矣；
+    不知三军之权而同三军之任，则军士疑矣。三军既惑且疑，则诸侯之难至矣。是谓乱军引胜。
+</pre>
+
+<label for="txt1">输入框</label>
+<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+
+<hr>
+<span id="span_selection"></span>
+
+<script>
+
+let div1_node = document.querySelector('#div1');
+div1_node.addEventListener('select', function(e){
+    debugger
+});
+
+let txt1_node = document.querySelector('#txt1');
+txt1_node.addEventListener('select', function(e){
+    let selNode = e.target;
+    debugger
+    console.info(`selectionStart: ${selNode.selectionStart}, selectionEnd: ${selNode.selectionEnd}, textLength: ${selNode.textLength}`);
+    console.info(`selection direction: ${selNode.selectionDirection}`);
+    let selectionSpan = document.querySelector('#span_selection');
+    let selText = selNode.value.substring(selNode.selectionStart, selNode.selectionEnd);
+    selectionSpan.innerHTML = selText;
+
+});
+</script>
+
+<style>
+#span_selection {
+    border: solid 1px red;
+    width: 30%;
+    /* display: inline-block; */
+    height: 1em;
+}
+</style>

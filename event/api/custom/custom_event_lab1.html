@@ -1,0 +1,19 @@
+
+
+
+<button id="my_event">我的事件</button>
+
+
+<script>
+
+document.addEventListener('my_event', function(){
+    alert('trigger my event');
+});
+
+let button1 = document.querySelector('#my_event');
+
+button1.addEventListener('click', function(){
+    document.dispatchEvent(new Event('my_event'));
+});
+
+</script>

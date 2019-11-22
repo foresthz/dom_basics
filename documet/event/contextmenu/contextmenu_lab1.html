@@ -1,6 +1,9 @@
 <script>
 
-    document.oncontextmenu = function (event) {
+    
+    
+    function oncontextmenu_hander1(event) {
+        debugger;
         event.preventDefault();
         // alert('invoke context menu');
         let menu1 = document.querySelector('.menu1');
@@ -16,10 +19,13 @@
 
     document.addEventListener('click', function (event) {
         let menu1 = document.querySelector('.menu1');
-        menu1.classList.add('hide');
+        menu1.classList.toggle('hide');
     });
 
     document.addEventListener('DOMContentLoaded', function () {
+
+        document.oncontextmenu = oncontextmenu_hander1;
+
         let menu1 = document.querySelector('.menu1');
         menu1.addEventListener('click', function (event) {
             event.stopPropagation();
@@ -33,6 +39,9 @@
                         break;
                     case "显示alert":
                         alert('alert ..... ');
+                        break;
+                    case "Facebook":
+                        open('https://www.facebook.com/');
                         break;
                     default:
                         break;
@@ -49,6 +58,7 @@
     <li class="item1">打开网页</li>
     <li class="item1">显示alert</li>
     <li class="item1">显示时间</li>
+    <li class="item1 fb">Facebook</li>
     <li class="item1">改变背景颜色</li>
     <li class="item1">增大字体</li>
     <li class="item1">缩小字体</li>
@@ -62,4 +72,13 @@
     .menu1 {
         background: yellow;
     }
+
+    .fb{
+        color:red;
+    }
 </style>
+
+<pre>
+    为何失效了?
+    多级菜单实现?
+</pre>
